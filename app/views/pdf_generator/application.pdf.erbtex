@@ -36,6 +36,7 @@
     \textbf{(กลุ่มสาระการเรียนรู้ที่เน้น \underline{วิทย์-คณิต})}\\
     \rule{\textwidth}{1pt}
   \end{center}
+  \fontsize{16}{18}\selectfont
   \begin{enumerate}
     \item {Lorem}
   \end{enumerate}
