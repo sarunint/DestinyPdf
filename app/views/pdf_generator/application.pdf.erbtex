@@ -28,7 +28,7 @@
 \begin{document}
   \pagestyle{openhousehdr}
   \begin{center}
-    \fontsize{20}{22}\selectfont
+    \fontsize{18}{20}\selectfont
     \textbf{โรงเรียนเตรียมอุดมศึกษา}\\
     \textbf{ใบสมัครสอบคัดเลือกเข้าศึกษาต่อชั้นมัธยมศึกษาปีที่ 4}\\
     \textbf{ประจําปีการศึกษา 2558}\\
