@@ -38,6 +38,6 @@
   \end{center}
   \fontsize{16}{18}\selectfont
   \begin{enumerate}
-    \item {Lorem}
+    \item {ชื่อ \underline{<%= @applicant[:title] + ' ' + @applicant[:fname] %>}}
   \end{enumerate}
 \end{document}
