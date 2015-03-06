@@ -39,6 +39,6 @@
   \fontsize{16}{18}\selectfont
   \begin{enumerate}
     \item ชื่อ \underline{<%= '%s %s' % [@applicant[:title], @applicant[:fname]] %>} นามสกุล \underline{<%= @applicant[:lname] %>} \\ หมายเลขประจำตัวประชาชน \underline{<%= @applicant[:nationalid] %>} วันเกิด \underline{<%= @applicant[:birthday] %>} \\ โทรศัพท์เคลื่อนที่ \underline{<%= @applicant[:mobile] %>} อีเมล \underline{<%= @applicant[:email] %>} \\ ผู้ปกครอง \underline{<%= '%s %s %s' % [@applicant[:parent_title], @applicant[:parent_fname], @applicant[:parent_lname]] %>} เกี่ยวข้องเป็น \underline{<%= @applicant[:parent_relation] %>} หมายเลขโทรศัพท์ \underline{<%= @applicant[:parent_mobile] %>}
-    \item ภูมิลำเนา\\บ้านเลขที่ \underline{<%= @applicant[:home_addr_number] %>} หมู่ \underline{<%= @applicant[:home_addr_moo] %>} ซอย \underline{<%= @applicant[:home_addr_soi] %>} \\ ถนน \underline{<%= @applicant[:home_addr_road]} ตำบล \underline{@applicant[:home_addr_subdistrict]} อำเภอ \underline{@applicant[:home_addr_district]} \\ จังหวัด \underline{@applicant[:home_addr_province]}
+    \item ภูมิลำเนา\\บ้านเลขที่ \underline{<%= @applicant[:home_addr_number] %>} หมู่ \underline{<%= @applicant[:home_addr_moo] %>} ซอย \underline{<%= @applicant[:home_addr_soi] %>} \\ ถนน \underline{<%= @applicant[:home_addr_road] %>} ตำบล \underline{<%= @applicant[:home_addr_subdistrict] %>} อำเภอ \underline{<%= @applicant[:home_addr_district] %>} \\ จังหวัด \underline{<%= @applicant[:home_addr_province] %>}
   \end{enumerate}
 \end{document}
