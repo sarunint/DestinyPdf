@@ -33,7 +33,7 @@
     \textbf{ใบสมัครสอบคัดเลือกเข้าศึกษาต่อชั้นมัธยมศึกษาปีที่ 4}\\
     \textbf{ประจําปีการศึกษา 2558}\\
     \fontsize{20}{22}\selectfont
-    \textbf{กลุ่มสาระการเรียนรู้ที่เน้น Lorem}\\
+    \textbf{(กลุ่มสาระการเรียนรู้ที่เน้น \underline{วิทย์-คณิต})}\\
     \rule{\textwidth}{1pt}
   \end{center}
 \end{document}
