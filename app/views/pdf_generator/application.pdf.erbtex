@@ -38,6 +38,6 @@
   \end{center}
   \fontsize{16}{18}\selectfont
   \begin{enumerate}
-    \item {ชื่อ \underline{<%= @applicant[:title] + ' ' + @applicant[:fname] %>} นามสกุล \underline{<%= @applicant[:lname] %>} \\ หมายเลขประจำตัวประชาชน \underline{<%= @applicant[:nationalid] %>}}
+    \item {ชื่อ \underline{<%= '%s %s' % [@applicant[:title], @applicant[:fname]] %>} นามสกุล \underline{<%= @applicant[:lname] %>} \\ หมายเลขประจำตัวประชาชน \underline{<%= @applicant[:nationalid] %>}}
   \end{enumerate}
 \end{document}
