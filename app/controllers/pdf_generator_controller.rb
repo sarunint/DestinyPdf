@@ -34,7 +34,6 @@ class PdfGeneratorController < ApplicationController
 
   private
   def validate_key
-    return true
     if ApiKey.find_by(key: params[:api_key]).nil?
       @message = 'No API key found, the access is denied.'
       render 'fail'
