@@ -14,7 +14,7 @@
 ]{THSarabunNew}
 \usepackage{anyfontsize}
 \usepackage{setspace}
-\usepackage[left=1in, right=1in, top=0.75in, bottom=0.75in]{geometry}
+\usepackage[left=0.5in, right=0.5in, top=0.75in, bottom=0.75in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \graphicspath{ {<%= Rails.root.join('app', 'assets', 'images') %>/} }
