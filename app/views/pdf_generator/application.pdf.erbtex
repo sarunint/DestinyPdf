@@ -3,6 +3,8 @@
 \usepackage{polyglossia}
 \usepackage{layout}
 \usepackage{setspace}
+\usepackage{textpos}
+\usepackage{array}
 \XeTeXlinebreaklocale "th_TH"
 \XeTeXlinebreakskip = 0pt plus 1pt
 \setmainfont[
@@ -14,10 +16,9 @@
 ]{THSarabunNew}
 \usepackage{anyfontsize}
 \usepackage{setspace}
-\usepackage[left=0.5in, right=0.5in, top=0.75in, bottom=0.75in]{geometry}
+\usepackage[left=0.5in, right=0.5in, top=0.5in, bottom=0.5in]{geometry}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
-\graphicspath{ {<%= Rails.root.join('app', 'assets', 'images') %>/} }
 \DeclareGraphicsExtensions{.pdf, .png, .jpg}
 \renewcommand{\headrulewidth}{0pt}
 \fancypagestyle{openhousehdr}
@@ -27,18 +28,76 @@
 }
 \begin{document}
   \pagestyle{openhousehdr}
+  \begin{textblock}{5}(0.5,0)
+    \fontsize{16}{18}\selectfont
+    <% if @applicant['is_quota'] == '1' %>
+      \noindent\textbf{สำหรับนักเรียนความสามารถพิเศษ}\\
+      ประเภทความสามารถพิเศษ: \textbf{\underline{<%= @quotatypes[@applicant['quota_type'].to_i] %>}}
+    <% else %>
+      \noindent สมัคร<%= @day['beautified_date'] %>
+    <% end %>
+  \end{textblock}
+  \begin{textblock}{5}(10,0)
+    \fontsize{25}{30}\selectfont
+    \begin{center}
+      \begin{tabular}{|p{0.35cm}|p{0.35cm}|p{0.35cm}|p{0.35cm}|p{0.35cm}|}
+        \hline
+        & & & & \\
+        \hline
+      \end{tabular} \\
+      \fontsize{16}{18}\selectfont
+      \textbf{เลขประจำตัวสอบ}\\
+      \fontsize{12}{14}\selectfont
+      (สำหรับอาจารย์ผู้รับสมัครสอบกรอก) \\
+      \fontsize{16}{18}\selectfont
+      \fbox{
+        \begin{minipage}[c][4cm]{3cm}
+          \begin{center}
+            ติดรูปถ่าย 3x4 ซม.
+          \end{center}
+        \end{minipage}
+      }
+    \end{center}
+  \end{textblock}
   \begin{center}
+    \includegraphics[scale=0.5]{<%= Rails.root.join('app', 'assets', 'images', 'prakeaw.png') %>}\\
     \fontsize{18}{20}\selectfont
     \textbf{โรงเรียนเตรียมอุดมศึกษา}\\
     \textbf{ใบสมัครสอบคัดเลือกเข้าศึกษาต่อชั้นมัธยมศึกษาปีที่ 4}\\
     \textbf{ประจําปีการศึกษา 2558}\\
     \fontsize{22}{24}\selectfont
-    \textbf{(กลุ่มสาระการเรียนรู้ที่เน้น \underline{วิทย์-คณิต})}\\
-    \rule{\textwidth}{1pt}
+    \textbf{(กลุ่มสาระการเรียนรู้ที่เน้น \underline{<%= @plan['name'] %>})}
   \end{center}
   \fontsize{16}{18}\selectfont
   \begin{enumerate}
-    \item ชื่อ \underline{<%= '%s %s' % [@applicant[:title], @applicant[:fname]] %>} นามสกุล \underline{<%= @applicant[:lname] %>} \\ หมายเลขประจำตัวประชาชน \underline{<%= @applicant[:nationalid] %>} วันเกิด \underline{<%= @applicant[:birthday] %>} \\ โทรศัพท์เคลื่อนที่ \underline{<%= @applicant[:mobile] %>} อีเมล \underline{<%= @applicant[:email] %>} \\ ผู้ปกครอง \underline{<%= '%s %s %s' % [@applicant[:parent_title], @applicant[:parent_fname], @applicant[:parent_lname]] %>} เกี่ยวข้องเป็น \underline{<%= @applicant[:parent_relation] %>} หมายเลขโทรศัพท์ \underline{<%= @applicant[:parent_mobile] %>}
-    \item ภูมิลำเนา\\บ้านเลขที่ \underline{<%= @applicant[:home_addr_number] %>} หมู่ \underline{<%= @applicant[:home_addr_moo] %>} ซอย \underline{<%= @applicant[:home_addr_soi] %>} \\ ถนน \underline{<%= @applicant[:home_addr_road] %>} ตำบล \underline{<%= @applicant[:home_addr_subdistrict] %>} อำเภอ \underline{<%= @applicant[:home_addr_district] %>} \\ จังหวัด \underline{<%= @applicant[:home_addr_province] %>}
+    \item ชื่อ \underline{<%= '%s %s' % [@applicant['title'], @applicant['fname']] %>} นามสกุล \underline{<%= @applicant['lname'] %>} \\ หมายเลขประจำตัวประชาชน \underline{<%= @applicant['nationalid'] %>} วันเกิด \underline{<%= @applicant['birthday'] %>} \\ โทรศัพท์เคลื่อนที่ \underline{<%= @applicant['student_mobile'] %>} อีเมล \underline{<%= @applicant['email'] %>} \\ ผู้ปกครอง \underline{<%= '%s %s %s' % [@applicant['parent_title'], @applicant['parent_fname'], @applicant['parent_lname']] %>} เกี่ยวข้องเป็น \underline{<%= @applicant['parent_relation'] %>} หมายเลขโทรศัพท์ \underline{<%= @applicant['parent_mobile'] %>}
+    \item ภูมิลำเนา\\บ้านเลขที่ \underline{<%= @address['home_address'] %>} หมู่ \underline{<%= @address['home_moo'] %>} ซอย \underline{<%= @address['home_soi'] %>} \\ ถนน \underline{<%= @address['home_road'] %>} ตำบล \underline{<%= @address['home_subdistrict'] %>} อำเภอ \underline{<%= @address['home_district'] %>} \\ จังหวัด \underline{<%= @address['home_province'] %>} รหัสไปรษณีย์ \underline{<%= @address['home_postal'] %>} โทรศัพท์ \underline{<%= @address['home_phone'] %>}
+    \item ที่อยู่ที่โรงเรียนติดต่อได้สะดวกที่สุด\\บ้านเลขที่ \underline{<%= @address['current_address'] %>} หมู่ \underline{<%= @address['current_moo'] %>} ซอย \underline{<%= @address['current_soi'] %>} \\ ถนน \underline{<%= @address['current_road'] %>} ตำบล \underline{<%= @address['current_subdistrict'] %>} อำเภอ \underline{<%= @address['current_district'] %>} \\ จังหวัด \underline{<%= @address['current_province'] %>} รหัสไปรษณีย์ \underline{<%= @address['current_postal'] %>} โทรศัพท์ \underline{<%= @address['current_phone'] %>}
+    \item เรียนจบ ม.3 จากโรงเรียน \underline{<%= @applicant['school'] %>} \\ จังหวัด \underline{<%= @applicant['school_province'] %>} ปีการศึกษา \underline{<%= @applicant['grad_year'] %>} ผลการเรียนสะสม \underline{<%= @applicant['grade'] %>}
+    \item กลุ่มสาระการเรียนรู้ที่เน้น \underline{<%= @plan['name'] %>}
+    <% if @major %>
+      ต้องเรียนเพิ่มในกลุ่มสาขา <%= @major %>\\
+    <% else %>
+      ต้องเรียนเพิ่มเติมในกลุ่มสาขาต่อไปนี้ 1 กลุ่ม \\ (โดยจัดตามคะแนนสอบ และตามลําดับตามความต้องการที่นักเรียนเลือก)
+
+
+      \begin{tabular}{llll}
+        1. <%= @majors[0] %> & 2. <%= @majors[1] %> & 3. <%= @majors[2] %> & 4. <%= @majors[3] %> \\
+        5. <%= @majors[4] %> & 6. <%= @majors[5] %> & 7. <%= @majors[6] %> & 8. <%= @majors[7] %> \\
+      \end{tabular}
+      \\
+    <% end %>
   \end{enumerate}
+  \textbf{แก้ไขล่าสุดเมื่อ <%= @applicant['auto_timestamp'] %>} \\
+  \begin{tabular}{ll}
+    \begin{tabular}{c} \includegraphics[scale=0.5]{<%= Rails.root.join('tmp', @applicant['nationalid'] + '.png') %>} \\ <%= @applicant['nationalid'] %> \end{tabular} & \begin{tabular}{l} (ลงชื่อ)............................................................ผู้สมัคร \\ \\ (ลงชื่อ)............................................................หัวหน้าสายรับสมัคร \end{tabular}
+  \end{tabular}
+  \begin{center}
+    \begin{tabular}{|c|}
+      \hline
+      \textbf{กรุณาตรวจสอบความถูกต้องของข้อมูลก่อนนํามาใช้} \\
+      \textbf{หากพบข้อมูลอันเป็นเท็จจะทําให้หมดสิทธิ์การสมัครสอบคัดเลือกทันที} \\
+      \hline
+    \end{tabular}
+  \end{center}
 \end{document}
