@@ -28,9 +28,10 @@
 \begin{document}
   \pagestyle{openhousehdr}
   \begin{center}
-    \fontsize{24}{28}\selectfont
-    \textbf{บัตรเข้าฟังการเสวนา}\\
-    \textbf{77 ปี ต.อ. เสวนาวิชาการ}\\
+    \fontsize{20}{22}\selectfont
+    \textbf{โรงเรียนเตรียมอุดมศึกษา}\\
+    \textbf{ใบสมัครสอบคัดเลือกเข้าศึกษาต่อชั้นมัธยมศึกษาปีที่ 4}\\
+    \textbf{ประจําปีการศึกษา 2558}\\
     \rule{\textwidth}{1pt}
   \end{center}
 \end{document}
