@@ -34,7 +34,8 @@
       \noindent\textbf{สำหรับนักเรียนความสามารถพิเศษ}\\
       ประเภทความสามารถพิเศษ: \textbf{\underline{<%= @quotatypes[@applicant['quota_type'].to_i] %>}}
     <% else %>
-      \noindent สมัคร<%= @day['beautified_date'] %>
+      \noindent สมัคร<%= @day['beautified_date'] %>\\
+      เวลาสมัคร <%= @day['beautified_time'] %>
     <% end %>
   \end{textblock}
   \begin{textblock}{5}(10,0)
