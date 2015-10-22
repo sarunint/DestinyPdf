@@ -22,7 +22,7 @@ module DestinyPdf
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
-    config.x.core_server = 'http://destinycore.namodev.com'
+    config.x.core_server = 'http://172.17.250.55'
     config.x.core_port = '80'
     config.x.core_key = '2raTrJoBZaabg0WIBmnskiH6tPTDGoMC5vrDsV63'
   end

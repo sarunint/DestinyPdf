@@ -91,7 +91,7 @@
   \end{enumerate}
   \textbf{แก้ไขล่าสุดเมื่อ <%= LatexToPdf.escape_latex(@applicant['auto_timestamp']) %>} \\
   \begin{tabular}{ll}
-    \begin{tabular}{c} \includegraphics[scale=0.5]{<%= Rails.root.join('tmp', @applicant['nationalid'] + '.png') %>} \\ <%= @applicant['nationalid'] %> \end{tabular} & \begin{tabular}{l} (ลงชื่อ)............................................................ผู้สมัคร \\ \\ (ลงชื่อ)............................................................หัวหน้าสายรับสมัคร \end{tabular}
+    \begin{tabular}{c} \includegraphics[scale=0.5]{<%= Rails.root.join('tmp', @applicant['nationalid'] + '.png') %>} \\ <%= @applicant['nationalid'] %> \end{tabular} & \begin{tabular}{l} (ลงชื่อ)............................................................ผู้ตรวจหลักฐาน \\ \\ (ลงชื่อ)............................................................ผู้สมัคร \\ \\ (ลงชื่อ)............................................................หัวหน้าสายรับสมัคร \end{tabular}
   \end{tabular}
   \begin{center}
     \begin{tabular}{|c|}
